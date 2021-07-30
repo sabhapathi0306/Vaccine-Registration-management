@@ -13,4 +13,4 @@ moto behind this project is to avoid queue system near vaccination center.
 2. updation and deletions only for authorized persons with valid credinatials
 
 ## Homepage
-![p3](https://user-images.githubusercontent.com/70704151/127649469-596d54b0-ed7d-4581-a477-7f95218223f4.PNG)
+![p1](https://user-images.githubusercontent.com/70704151/127649487-3115ad24-a6ff-45b7-8d07-c12d416472dc.PNG)
