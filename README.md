@@ -12,3 +12,5 @@ moto behind this project is to avoid queue system near vaccination center.
 1. one can create,retrive, update and delete the data
 2. updation and deletions only for authorized persons with valid credinatials
 
+## Homepage
+![p3](https://user-images.githubusercontent.com/70704151/127649469-596d54b0-ed7d-4581-a477-7f95218223f4.PNG)
