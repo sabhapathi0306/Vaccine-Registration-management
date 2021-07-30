@@ -1,0 +1,480 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccine Registration</title>
+    <style type = "text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .details{
+            background-color:#00000080;
+            width: 800px;
+            margin:auto;
+        }
+        body{
+            background-image: url("{% static 'vacc.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 60px;
+            margin-bottom:40px;
+            color:whitesmoke;
+        }
+        .regform {
+            width: 800px;
+            background-color: rgb(41, 39, 39);
+            margin: auto;
+            margin-top: -10px;
+            color: #FFFFFF;
+            padding: 10px 0px 10px 0px;
+            text-align: center;
+            border-radius: 15px 15px 0px 0px;
+        }
+        .details{
+            position: relative;
+            width: 800px;
+            margin: auto;
+        }
+        form{
+            padding: 10px;
+        }
+        .name{
+            margin-left: 25px;
+            margin-top: 20px;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+       .username{
+           position: relative;
+           left: 200px;
+           top: -30px;
+           line-height: 40px;
+           border-radius: 5px;
+           padding: 0px 22px;
+           font-size: 16px;
+       }
+       .aadhar_number{
+           position: relative;
+           left: 200px;
+           top: -30px;
+           line-height: 40px;
+           border-radius: 5px;
+           padding: 0 22px;
+           font-size: 16px;
+       }
+       .phone_number{
+        position: relative;
+        left: 200px;
+        top: -30px;
+        line-height: 30px;
+        width:150px;
+        border-radius: 5px;
+        padding: 0 22px;
+        font-size: 16px;
+       }
+       .option{
+           position: relative;
+           left: 200px;
+           top: -30px;
+           width: 300px;
+           height: 40px;
+           border-radius: 5px;
+           padding:0 22px;
+           color: #555;
+           overflow: none;
+           overflow: hidden;
+       }
+       .options{
+        position: relative;
+        left: -18px;
+        top: -1px;
+        padding:0 22px;
+       }
+       .genders{
+           position: relative;
+           left: auto;
+           
+       }
+       .gender{
+           position: relative;
+           left: 200px;
+           top: -30px;
+           width: 150px;
+           height: 40px;
+           border-radius: 5px;
+           padding:0 22px;
+           color: #555;
+           overflow: none;
+           overflow: hidden;
+       }
+       .option option{
+           font-size:14px;
+       }
+       .gender option{
+           font-size: 14px;
+       }
+       .disable{
+           position: relative;
+           left: -18px;
+           top: -80px;
+           font-size: 20px;
+           padding:0 22px
+       }
+       #ability{
+           position: relative;
+           left: 200px;
+           top: -110px;
+           padding: 25px 0px;
+           width: 25px;
+           font-size: large;
+       }
+       #Button{
+           background-color: yellowgreen;
+           display:block;
+           margin: -290px 0px 0px 20px;
+           text-align: center;
+           border-radius: 12px;
+           border: 2px solid #366436;
+           padding: 15px 40px;
+           cursor: pointer;
+           color: black;
+           outline: none;
+           transition:0.25px;
+           top:-100px;
+           font-style:unset;
+           font-family: Georgia, 'Times New Roman', Times, serif;
+           font-size: 20px;
+       }
+       .Age{
+        position: relative;
+        left: 380px;
+        top: -110px;
+        height: 40px;
+        width: 30px;
+        border-radius: 5px;
+        padding:0 22px;
+       }
+       #age{
+        position: relative;
+        left: 450px;
+        top: -70px;
+        height: 40px;
+        width: 30px;
+        border-radius: 5px;
+        padding:0 22px;
+       }
+       #Date{
+        position: relative;
+        left: 380px;
+        top: -165px;
+        border-radius: 5px;
+        font-size: large;
+        color: #555;
+       }
+       .Date{
+        position: relative;
+        left: 320px;
+        top: -140px;
+        border-radius: 5px;
+        font-size: 20px;
+       }
+       .Dose{
+           position: relative;
+           left: 10px;
+           top: -125px;
+           padding: auto;
+       }
+       .Doseage{
+           position: relative;
+           left: 200px;
+           top: -160px;
+           height: 40px;
+           width : 100px;
+           border-radius: 5px;
+           padding: auto;
+           color: #555;
+       }
+       #State{
+           position: relative;
+           left:-10px;
+           top:-105px;
+           padding: 0 22px;
+       }
+       .state{
+           position: relative;
+           left:100px;
+           top:-140px;
+           border-radius: 5px;
+           width: 150px;
+           height: 40px;
+           padding: 0 22px;
+       }
+       #District{
+        position: relative;
+        left:300px;
+        top:-175px;
+        padding: 0 22px;
+       }
+       .district{
+        position: relative;
+        left:420px;
+        top:-210px;
+        border-radius: 5px;
+        width: 150px;
+        height: 40px;
+        padding: 0 22px;
+       }
+       #Aadress{
+           position: relative;
+           left: -15px;
+           top: -165px;
+           padding: 0 22px;
+       }
+       .aadress{
+           position: relative;
+           left: 110px;
+           top:-205px;
+           width:300px;
+           height: 60px;
+           border-radius: 5px;
+           padding: 0 22px;
+        }
+        #Pin{
+            position: relative;
+            left:480px;
+            top:-265px;
+            padding: 0 22px;
+        }
+        .pin{
+            position: relative;
+            left: 550px;
+            top:-295px;
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            padding: 0 22px;
+        }
+        #Group{
+            position: relative;
+            left: 300px;
+            top: -490px;
+            padding: 0 22px;
+        }
+        .group{
+            position: relative;
+            left: 450px;
+            top: -520px;
+            padding: 0 22px;
+            border-radius: 5px;
+            width: 170px;
+            height: 40px;
+        }
+        .image {
+            position: relative;
+           
+            top: -900px;
+            width: 400px;
+            height: 30px;
+            margin: auto;  
+            left: 600px; 
+            margin-top: -10px;
+        }
+        #margen {
+            position: relative;
+            top: -60px;
+        }
+
+        #margen2 {
+            position: relative;
+            top: -65px;
+        }
+        
+        #myForm{
+            position: relative;
+            left: 10px;
+            top:-900px;
+        }
+        #myForm2{
+            position: relative;
+            left: -600px;
+            top:-800px;
+            width: 250px;
+            margin: auto;
+           
+        }
+        #status{
+            position: relative;
+            top:-700px;
+            left:-600px;
+            margin: auto;
+            width: 250px;
+        }
+        
+     
+    </style>
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["q"].value;
+            if (x == "" || x == null )
+                {
+                    alert("ENTER VALID AADHAR NUMBER TO SEARCH");
+                    return false;
+                }
+        }
+    </script>
+</head>
+<body>
+    <p align="center" id="margen">
+        <marquee bgcolor="gray" height="40" width="100%" behavior="alternate" style="color: black; font:bold;">
+            <h3>
+                REGISTER FOR VACCINATION AND GET VACCINATED FROM ANYWHERE IN KARNATAKA
+            </h3>
+        </marquee>
+    </p>
+    <p align="center" id="margen2">
+        <marquee bgcolor="gray" height="40" width="50%" behavior="scroll" style="color:red; font:italic;">
+            <h3 style="color: red; font:normal">
+                Registration timing 10AM - 4PM
+            </h3>
+            <h4 style="color: seagreen; font:normal">
+                ___AVOID WAITING IN QUEUE___
+            </h4>
+        </marquee>
+    </p>
+    <div class= "regform"><h1>Vaccine Registration Form</h1></div>
+    <div class  = "details">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h2 id = "name">Name</h2>
+            <input class = "username" type = "text" placeholder="Enter name" name = "Name" required><br>
+            <h2 id = "name">Aadhar number</h2>
+            <input class = "aadhar_number" type = "text" placeholder = "Aadhar number" name = "Aadhar_number" required autocomplete="off"><br>
+            <h2 id = "name">Phone number</h2>
+            <input class = "phone_number"  type  = "text" placeholder="Mobile number" name = "Phone_number" required autocomplete="off"><br>
+            <h2 class = "options"> Vaccine</h2>
+            <select class="option" name = "Vaccine" required>
+                <option disabled = "disabled" selected = "selected">--select vaccine--</option>
+                <option>COVAXIN</option>
+                <option>COVIDSHEILD</option>
+                <option>SPUTNIK V</option>
+                <option>PFIZER</option>
+            </select><br>
+            <h2 class = "genders"> Gender</h2>
+            <select class="gender" name = "Gender" required>
+                <option disabled = "disabled" selected = "selected">Select gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Others</option>
+            </select><br>
+            <input id = "age" type="text" placeholder="Age" name = "Age" required><br>
+            <h2 class="Age">Age</h2><br>
+            <h2 class = "disable">Disability</h2>
+            <input  type="radio" id="ability" name="Disability" value="yes"/> 
+            <label id = "ability">Yes</label><br>
+            <input  type="radio" id="ability" name="Disability" value="no"/> 
+            <label id = "ability">No</label><br>
+            <h2 class = "Date" >Date:</h2>
+            <input type="date" id="Date" name="Date" required><br>
+            <h2 class = "Dose" >Dose:</h2>
+            <select class="Doseage" name = "doseage" required>
+                <option disabled = "disabled" selected = "selected">Select Dose</option>
+                <option>First Dose</option>
+                <option>Second Dose</option>
+            </select><br>
+            <h2 id = "State">State:</h2>
+            <input class = "state" type = "text" name= "State" placeholder="Your State" ><br>
+            <h2 id = "District">District:</h2>
+            <input class = "district" type = "text" name= "District" placeholder = " Your District" ><br>
+            <h2 id = "Aadress">Aadress:</h2>
+            <textarea class= "aadress" name= "Aadress" required></textarea><br>
+            <h2 id = "Pin">Pin:</h2>
+            <input class = "pin" type = "text" name= "Pin" placeholder="     PIN CODE   " required><br>
+            <h2 id = "Group" >Age group:</h2>
+            <select class="group" name = "Group" required>
+                <option disabled = "disabled" selected = "selected">Select age group</option>
+                <option>45 above</option>
+                <option>18-45</option>
+                <option>Below 18</option>
+            </select><br>
+            <button  id = "Button" type="submit" value="submit"> Submit</button>
+        </form>
+        <div>
+            {% for message in messages %}
+            <h3>
+                {% if message.tags %}
+                <script>alert("{{ message }}")</script> {% endif %}
+            </h3>
+            {% endfor %}
+        </div>
+        <h3 style="color: rgb(235, 10, 10);font-size:medium;font:xx-large" align="center"> DISABILITY PROOF SHOULD
+            DISCOLSE DURING VACCINATION</h3>
+        <h3 style="color: rgb(226, 13, 13);font-size:medium;font:xx-large" align="center"> VISIT YOUR NEAR
+            VACCINATION CENTER AFTER ONE DAY OF SUCCESSFUL REGISTRATION</h3>
+    </div>
+    <div id = "myForm2">
+        <h2 style="color: black;">DOCTOR PORTAL.!</h2>
+        <p style="color:RED;">ONLY FOR DOCTORS</p>
+        <a href="register.html"><h3>DOCTOR PORTAL</h3></a>
+    </div>
+
+    
+    
+    <div class="image">
+        <div>
+            <h3 style="color: rgba(0,0,0,6);font:bold">HOW TO DOWNLOAD VACCINATION </h3>
+            <h3 style="color: rgba(0,0,0,6);font:bold"> CERTIFICATE?</h3>
+        </div>
+        <div class="main">
+            <img src="{% static '3.jpeg' %}" width="350" height="250"><br>
+        </div>
+        <div style="overflow:auto">
+            <div class="menu">
+                <div class="menuitem" style="color: black;font:bold;font-size:12px">
+                    <h2>1.DOWNLOAD FROM COWIN</h2>
+                </div>
+                <h4 style="color: black;font:bold">LINK:
+                    <a href="https://selfregistration.cowin.gov.in/">Visit cowin.gov.in!</a>
+                </h4>
+                <img src="{% static '1.jpeg' %}" width="360" height="500">
+            </div>
+            <div style="overflow:auto">
+                <div class="menu">
+                    <div class="menuitem" style="color: black;font-size:12px">
+                        <h2>2.DOWNLOAD FROM DIGI-LOCKER APP</h2>
+                    </div>
+                    <h4 style="color: black;font:bold">LINK:
+                        <a href="https://www.digilocker.gov.in/dashboard">Visit digilocker!</a>
+                    </h4>
+                    <h5 style="color: black;font:larger">* Visit the Play store to download and install the Digi-Locker
+                    </h5>
+                    <h5 style="color: black;font:larger">app if you haven't already.</h5>
+                    <h5 style="color: black;font:larger">*Now go through the registration process in the app by entering
+                    </h5>
+                    <h5 style="color: black;font:larger">details like Name, DOB, gender, Security Pin,
+                    </h5>
+                    <h5 style="color: black;font:larger"> Mobile number, Aadhar number, and Email ID.</h5>
+                    <h5 style="color: black;font:larger">* Now after the registration, navigate through the Central</h5>
+                    <h5 style="color: black;font:larger">Government tab andclick on (MoHFW).</h5>
+                    <h5 style="color: black;font:larger">* You will see an option labeled as"Vaccine Certificate".</h5>
+                    <h5 style="color: black;font:larger">Click on the Vaccine Certificate link and enter your 13 Digit
+                    </h5>
+                    <h5 style="color: black;font:larger">Reference ID to download the Covid Vaccine Certificate.</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id = "status">
+        <h2 style="color: black;">CHECK STATUS</h2><br>
+        <h3 style="color: black;">click here to check status</h3>
+        <a href="status.html"><h3>Status</h3></a>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPDATION</title>
+    <style type = "text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        .details{
+            background-color:rgba(0,0,0,0.5);
+            width: 800px;
+            margin:auto;
+        }
+        body{
+            background-image: url("{% static 'vacc.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 60px;
+            margin-bottom:30px;
+            color:whitesmoke;
+        }
+        .regform {
+            width: 600px;
+            background-color: rgb(41, 31, 31);
+            margin: auto;
+            margin-top: -10px;
+            color: #FFFFFF;
+            padding: 10px 0px 10px 0px;
+            text-align: center;
+            border-radius: 15px 15px 0px 0px;
+        }
+        .details{
+            position: relative;
+            width: 600px;
+            height: 800px;
+            margin: auto;
+            border-radius: 5px;
+        }
+        form{
+            padding:10px;
+      
+        }
+        .name{
+            margin-left: 25px;
+            margin-top: 20px;
+            color: white;
+             font-size: 16px;
+             font-weight: 700;
+        }
+
+        #lab{
+            position: relative;
+            top: 50px;
+            left: 10px;
+            margin-top: 28px;
+
+        }
+        #out{
+            position: relative;
+            top: -450px;
+            left: 100px;
+            margin-top: 25px;
+            width: 180px;
+            height: 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+            font:bold
+        }
+        #not{
+            position: relative;
+            left: 410px;
+
+        }
+        #margen {
+            position: relative;
+            top: -60px;
+        }
+
+        #margen2 {
+            position: relative;
+            top: -65px;
+        }
+        
+        .st{
+            position: relative;
+            top: -400px;
+            left: 300px;
+        }
+        .status{
+            position: relative;
+            top: -460px;
+            left: 250px;
+            width: 100px;
+            height: 40px;
+            border-radius: 5px;
+        }
+        #st1{
+            position: relative;
+            top: -420px;
+            left: 50px;
+        }
+        #ss{
+            position: relative;
+            top: -460px;
+            left: 120px;
+            width: 130px;
+            height: 40px;
+            border-radius: 5px;
+        }
+        #bt{
+            position: relative;
+            top: -420px;
+            left: 100px;
+            width: 80px;
+            height: 40px;
+            font-family: 'Times New Roman', Times, serif;
+            font: bold;
+            color: black;
+            background-color:seagreen;
+            border-radius: 5px;
+        }
+        #bt2{
+            position: relative;
+            top: -425px;
+            left: 300px;
+            width: 80px;
+            height: 40px;
+            background-color: seagreen;
+            color: black;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["Q"].value;
+            if (x == "" || x == null )
+                {
+                    alert("ENTER VALID AADHAR NUMBER TO SEARCH");
+                    return false;
+                }
+        }
+    </script>
+</head>
+<body>
+    <p align="center" id="margen">
+        <marquee bgcolor="gray" height="40" width="100%" behavior="alternate" style="color: black; font:bold;">
+            <h3>
+                REGISTER FOR VACCINATION AND GET VACCINATED FROM ANYWHERE IN KARNATAKA
+            </h3>
+        </marquee>
+    </p>
+    <p align="center" id="margen2">
+        <marquee bgcolor="gray" height="40" width="50%" behavior="scroll" style="color:red; font:italic;">
+            <h3 style="color: red; font:normal">
+                Registration timing 10AM - 4PM
+            </h3>
+            <h4 style="color: seagreen; font:normal">
+                __CLOSING TIME IS 4PM__
+            </h4>
+        </marquee>
+    </p>
+    <button ><a href="/">HOME</a></button>
+    <div class= "regform"><h1>UPDATIONS</h1></div>
+    <div class  = "details">
+        
+        <form id = "myForm" action="" method="POST">
+            {% csrf_token %}
+            
+            <h2 id = "lab">vaccien:</h2>
+            <h2 id = "lab">Dose:</h2>
+            <h2 id = "lab">Name:</h2>
+            <h2 id = "lab">Aadhar_Number:</h2>
+            <h2 id = "lab">phone_number:</h2>
+            <h2 id = "lab">Group:</h2>
+            <h2 id = "lab">Gender:</h2>
+            <h2 id = "lab">Register Date:</h2>
+            <h2 id = "lab">Pin:</h2>
+            <center>
+                    <input id = "out" type="text" value="{{details.Vaccine}}" readonly><br>
+                    <input id = "out" type="text" value="{{details.doseage}}" readonly><br>
+                    <input  id = "out" type="text" value="{{details.Name}}" readonly><br>
+                    <input  id = "out" type="text" value="{{details.Aadhar_number}}" readonly><br>
+                    <input  id = "out" type="text" value="{{details.Phone_number}}" readonly><br>
+                    <input  id = "out" type="text" value="{{details.Group}}" readonly><br>
+                    <input  id = "out" type="text" value="{{details.Gender}}" readonly><br>
+                    <input  id = "out" type="text" value="{{details.Date}}" readonly><br>
+                    <input  id = "out" type="text" value="{{details.Pin}}" readonly><br>
+            </center>
+            <h2 class= "st">status:</h2>
+            <h2 id= "st1">Date:</h2>
+            <input id  ="ss" type="date" name="Rec_Date" required>
+            <select class="status" name = "Status" >
+                <option disabled = "disabled" selected = "selected">Select</option>
+                <option>Recieved</option>
+                <option>Not Recieved</option>
+            </select><br>
+            <button id = "bt" type="submit">Submit</button>
+            <button id = "bt2"><a href="/retrive.html">Back</a></button>
+           
+        </form>
+        <div>
+            {% for message in messages %}
+            <h3>
+                {% if message.tags %}
+                <script>alert("{{ message }}")</script> {% endif %}
+            </h3>
+            {% endfor %}
+        </div>
+    </body>
+</html>

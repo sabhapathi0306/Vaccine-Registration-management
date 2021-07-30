@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STATUS</title>
+    <style type = "text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        .details{
+            background-color:rgba(0,0,0,0.5);
+            width: 800px;
+            margin:auto;
+        }
+        body{
+            background-image: url("{% static 'vacc.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 60px;
+            margin-bottom:30px;
+            color:whitesmoke;
+        }
+        .regform {
+            width: 600px;
+            background-color: rgb(41, 31, 31);
+            margin: auto;
+            margin-top: -10px;
+            color: #FFFFFF;
+            padding: 10px 0px 10px 0px;
+            text-align: center;
+            border-radius: 15px 15px 0px 0px;
+        }
+        .details{
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin: auto;
+            border-radius: 5px;
+        }
+        form{
+            padding:10px;
+      
+        }
+        .name{
+            margin-left: 25px;
+            margin-top: 20px;
+            color: white;
+             font-size: 16px;
+             font-weight: 700;
+        }
+        #margen {
+            position: relative;
+            top: -60px;
+        }
+
+        #margen2 {
+            position: relative;
+            top: -65px;
+        }
+        #la{
+            position: relative;
+            top: 100px;
+            margin-bottom: 20px;
+        }
+        #msg{
+            position: relative;
+            top: 100px;
+        }
+        #Sea{
+            position: relative;
+            width: 150px;
+            height: 40px;
+            border-radius: 5px;
+        }
+        #btn{
+            position: relative;
+            width: 80px;
+            height: 40px;
+            border-radius: 5px;
+            background-color: seagreen;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["Q"].value;
+            if (x == "" || x == null )
+                {
+                    alert("ENTER VALID AADHAR NUMBER TO SEARCH");
+                    return false;
+                }
+        }
+    </script>
+</head>
+<body>
+    <p align="center" id="margen">
+        <marquee bgcolor="gray" height="40" width="100%" behavior="alternate" style="color: black; font:bold;">
+            <h3>
+                REGISTER FOR VACCINATION AND GET VACCINATED FROM ANYWHERE IN KARNATAKA
+            </h3>
+        </marquee>
+    </p>
+    <p align="center" id="margen2">
+        <marquee bgcolor="gray" height="40" width="50%" behavior="scroll" style="color:red; font:italic;">
+            <h3 style="color: red; font:normal">
+                Registarion  timing 10AM - 4PM
+            </h3>
+            <h4 style="color: seagreen; font:normal">
+                __CLOSING TIME IS 4PM__
+            </h4>
+        </marquee>
+    </p>
+    <button><a href="/">HOME</a></button>
+    <div class= "regform"><h1>STATUS</h1></div>
+    <div class  = "details">
+        <form id = "myForm1" action="" method="GET">
+            {% csrf_token %}
+            <input  id = "Sea" type="search"  placeholder= "Aadhar number" name="Q" required>
+            <button id = "btn" type="submit">search</button>        
+            {% for P in p %}
+            <center>
+            <h2 id = "la">REFRENCE TOKEN:  {{P.Ref_token}}</h2>
+            <h2 id = "la">DOSE STATUS:     {{P.Status}}</h2>
+            <h2 id = "la">RECIVED DATE:    {{P.Rec_Date}}</h2>
+            {% if P.Status == None %}
+            <h2 id = "msg">Please visit near vaccination center and get vaccine</h2>
+            {% else %}
+            <h2 id = "msg">Great you have vaccinated download certificate</h2>
+            {% endif %}
+            {% endfor %}
+           </center>
+        </form>
+        <div>
+            {% for message in messages %}
+            <h3>
+                {% if message.tags %}
+                <script>alert("{{ message }}")</script> {% endif %}
+            </h3>
+            {% endfor %}
+        </div>
+</body>
+</html>

@@ -1,0 +1,210 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Portal</title>
+    <style type = "text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        .details{
+            background-color:rgba(0,0,0,0.5);
+            width: 800px;
+            margin:auto;
+        }
+        body{
+            background-image: url("{% static 'vacc.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 60px;
+            margin-bottom:30px;
+            color:whitesmoke;
+        }
+        .regform {
+            width: 600px;
+            background-color: rgb(41, 31, 31);
+            margin: auto;
+            margin-top: -10px;
+            color: #FFFFFF;
+            padding: 10px 0px 10px 0px;
+            text-align: center;
+            border-radius: 15px 15px 0px 0px;
+        }
+        .details{
+            position: relative;
+            width: 600px;
+            height: 800px;
+            margin: auto;
+            border-radius: 5px;
+        }
+        form{
+            padding:10px;
+      
+        }
+        .name{
+            margin-left: 25px;
+            margin-top: 20px;
+            color: white;
+             font-size: 16px;
+             font-weight: 700;
+        }
+        #Sea{
+            position: relative;
+            left: 200px;
+            top: 10px;
+            width: 200px;
+            height: 30px;
+            border-radius: 5px;
+        }
+        #btn{
+            position: relative;
+            left: 20px;
+            top:50px;
+            width: 80px;
+            height: 20px;
+            padding: 0 22px;
+        }
+        #lab{
+            position: relative;
+            top: 100px;
+            left: 10px;
+            margin-top: 28px;
+
+        }
+        #out{
+            position: relative;
+            top: -390px;
+            left: 100px;
+            margin-top: 25px;
+            width: 180px;
+            height: 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+            font:bold
+        }
+        #not{
+            position: relative;
+            left: 210px;
+            top:-450px;
+
+        }
+        #margen {
+            position: relative;
+            top: -60px;
+        }
+
+        #margen2 {
+            position: relative;
+            top: -65px;
+        }
+        #lin{
+            position: relative;
+            top: -360px;
+            width: 80px;
+            height: 40px;
+            border-radius: 5px;
+            background-color: seagreen;
+            color: black; 
+        }
+        #step{
+            position: relative;
+            left: -450px;
+            top: -1000px;
+        }
+        #lin2{
+            position: relative;
+            left: -400px;
+            top: 40px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["Q"].value;
+            if (x == "" || x == null )
+                {
+                    alert("ENTER VALID AADHAR NUMBER TO SEARCH");
+                    return false;
+                }
+        }
+    </script>
+</head>
+<body>
+    <p align="center" id="margen">
+        <marquee bgcolor="gray" height="40" width="100%" behavior="alternate" style="color: black; font:bold;">
+            <h3>
+                REGISTER FOR VACCINATION AND GET VACCINATED FROM ANYWHERE IN KARNATAKA
+            </h3>
+        </marquee>
+    </p>
+    <p align="center" id="margen2">
+        <marquee bgcolor="gray" height="40" width="50%" behavior="scroll" style="color:red; font:italic;">
+            <h3 style="color: red; font:normal">
+                Registration timing 10AM - 4PM
+            </h3>
+            <h4 style="color: seagreen; font:normal">
+                __CLOSING TIME IS 4PM__
+            </h4>
+        </marquee>
+    </p>
+    <button><a href="/">HOME</a></button>
+    <div class= "regform"><h1>RECIVER DETAILS</h1></div>
+    <div class  = "details">
+        <div id = "lin2">
+            
+            <h2 style="color: black;">For deletion click here</h2>
+            <button style="background-color:seagreen;" ><a href="delet.html" >Delete</a></button>
+        </div>
+        <form id = "myForm" action="retrive.html" method="GET">
+            {% csrf_token %}
+            <input  id = "Sea" type="search"  placeholder= "Ref_token" name="Q" required>
+            <button id = "btn" type="submit">search</button>        
+            <button id = "btn" type="reset">Reset</button>
+            <h2 id = "lab">vaccien:</h2>
+            <h2 id = "lab">Dose:</h2>
+            <h2 id = "lab">Name:</h2>
+            <h2 id = "lab">Aadhar_Number:</h2>
+            <h2 id = "lab">phone_number:</h2>
+            <h2 id = "lab">Group:</h2>
+            <h2 id = "lab">Gender:</h2>
+            <h2 id = "lab">Register Date:</h2>
+            <h2 id = "lab">Pin:</h2>
+            <center>
+            {% if p %}   
+                {% for P in p%}
+                    <input id = "out" type="text" value="{{P.Vaccine}}" readonly><br>
+                    <input id = "out" type="text" value="{{P.doseage}}" readonly><br>
+                    <input  id = "out" type="text" value="{{P.Name}}" readonly><br>
+                    <input  id = "out" type="text" value="{{P.Aadhar_number}}" readonly><br>
+                    <input  id = "out" type="text" value="{{P.Phone_number}}" readonly><br>
+                    <input  id = "out" type="text" value="{{P.Group}}" readonly><br>
+                    <input  id = "out" type="text" value="{{P.Gender}}" readonly><br>
+                    <input  id = "out" type="text" value="{{P.Date}}" readonly><br>
+                    <input  id = "out" type="text" value="{{P.Pin}}" readonly><br>
+                    <button id = "lin"><a href="/edit.html/{{P.id}}">UPDATE</a></button>
+                {% endfor %}
+            {% else %}
+                <h3 id= "not" style="color: rgb(233, 57, 57);">!!DATA NOT FOUND</h3>
+            {% endif %}
+            </center>
+        </form>
+        
+        
+        <div>
+            {% csrf_token %}
+            {% for message in messages %}
+            <h3>
+                {% if message.tags %}
+                <script>alert("{{ message }}")</script> {% endif %}
+            </h3>
+            {% endfor %}
+        </div>
+    
+</body>
+</html>

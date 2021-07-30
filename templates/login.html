@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <style type = "text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        .details{
+            background-color:rgba(0,0,0,0.5);
+            width: 800px;
+            margin:auto;
+        }
+        body{
+            background-image: url("{% static 'vacc.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 60px;
+            margin-bottom:30px;
+            color:whitesmoke;
+        }
+        .regform {
+            width: 600px;
+            background-color: rgb(41, 31, 31);
+            margin: auto;
+            margin-top: -10px;
+            color: #FFFFFF;
+            padding: 10px 0px 10px 0px;
+            text-align: center;
+            border-radius: 15px 15px 0px 0px;
+        }
+        .details{
+            position: relative;
+            width: 600px;
+            height: 500px;
+            margin: auto;
+            border-radius: 5px;
+        }
+        form{
+            padding:10px;
+      
+        }
+        .name{
+            margin-left: 25px;
+            margin-top: 20px;
+            color: white;
+             font-size: 16px;
+             font-weight: 700;
+        }
+        #margen {
+            position: relative;
+            top: -60px;
+           
+        }
+
+        #margen2 {
+            position: relative;
+            top: -65px;
+        }
+        #log{
+            position: relative;
+            left: 250px;
+            top:-15px;
+            margin-bottom: 20px;
+            width: 150px;
+            height: 40px;
+            border-radius: 5px;
+        }
+        #lab{
+            position: relative;
+            margin-bottom: 30px;
+            top: 110px;
+            left: 100px;
+        }
+        #logi{
+            position: relative;
+            top: 20px;
+            left: 150px;
+            width: 80px;
+            height: 40px;
+            border-radius: 5px;
+            background-color: seagreen;
+        }
+        
+    </style>
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["Q"].value;
+            if (x == "" || x == null )
+                {
+                    alert("ENTER VALID AADHAR NUMBER TO SEARCH");
+                    return false;
+                }
+        }
+    </script>
+</head>
+<body>
+    <p align="center" id="margen">
+        <marquee bgcolor="gray" height="40" width="100%" behavior="alternate" style="color: black; font:bold;">
+            <h3>
+                REGISTER FOR VACCINATION AND GET VACCINATED FROM ANYWHERE IN KARNATAKA
+            </h3>
+        </marquee>
+    </p>
+    <p align="center" id="margen2">
+        <marquee bgcolor="gray" height="40" width="50%" behavior="scroll" style="color:red; font:italic;">
+            <h3 style="color: red; font:normal">
+                Closing timing 4PM
+            </h3>
+            <h4 style="color: seagreen; font:normal">
+                __CLOSING TIME IS 4PM__
+            </h4>
+        </marquee>
+    </p>
+    <button ><a href="/">HOME</a></button>
+    <div class= "regform"><h1>DOCTOR LOGIN</h1></div>
+    <div class  = "details">
+        <h2 id = "lab">Username:</h2>
+        <h2 id = "lab">Password:</h2>
+        <form id = "myForm" action="login.html" method="POST">
+            {% csrf_token %}
+            <input id = "log" type="text" name = "username" placeholder="Doctorid" required><br>
+            <input  id = "log" type="password" name="password" placeholder="password" required><br>
+            <button id  ="logi" type="submit">submit</sub></button>
+         
+        </form>
+        <div>
+            {% for message in messages %}
+            <h3>
+                {% if message.tags %}
+                <script>alert("{{ message }}")</script> {% endif %}
+            </h3>
+            {% endfor %}
+        </div>
+</body>
+</html>
