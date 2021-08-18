@@ -4,8 +4,9 @@ Vaccine Registration Management website operates based on CRUD concept .Using th
 moto behind this project is to avoid queue system near vaccination center.
 
 ## Tech Stacks used in this design is: 
+
 1. HTML/CSS
-2.Backend : Django
+2. Backend : Django                                      
 3. Database : MySQL
 
 # Working
