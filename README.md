@@ -12,7 +12,7 @@ moto behind this project is to avoid queue system near vaccination center.
 1. one can create,retrive, update and delete the data
 2. updation and deletions only for authorized persons with valid credinatials
 
-# small video clip on working :
+# small video clip on website working :
 https://drive.google.com/file/d/1h2UbZI2nxZj1LG2xfws-vkzGzCW5aloi/view?usp=sharing
 
 ## Homepage
